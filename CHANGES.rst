@@ -5,7 +5,7 @@ Changelog of tags2sdists
 0.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added creation (via zest.releaser) of single sdist tarball.
 
 
 0.1 (2011-10-10)
