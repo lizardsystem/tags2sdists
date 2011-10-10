@@ -12,3 +12,5 @@ Packagedir wraps a directory with source distributions.
     >>> package_dir.parse()
     >>> sorted(package_dir.packages.keys())
     ['package1', 'package2']
+    >>> sorted(package_dir.packages['package1'])
+    ['0.1', '0.2']
