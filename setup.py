@@ -37,5 +37,6 @@ setup(name='tags2sdists',
       extras_require = {'test': tests_require},
       entry_points={
           'console_scripts': [
+              'make_sdists = tags2sdists.script:main',
           ]},
       )
