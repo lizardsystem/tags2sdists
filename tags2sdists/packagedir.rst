@@ -29,9 +29,9 @@ For adding tarballs, we use a temporary directory:
     >>> package_dir.parse()
     >>> sorted(package_dir.packages.keys())
     []
-    >>> test_package = os.path.join(testdir, 'package1',
+    >>> test_tarball = os.path.join(testdir, 'package1',
     ...                             'package1-0.1.tar.gz')
-    >>> package_dir.add_tarball(test_package, 'package1')
+    >>> package_dir.add_tarball(test_tarball, 'package1')
     >>> 'package1' in os.listdir(tempdir)
     True
     >>> 'package1-0.1.tar.gz' in os.listdir(os.path.join(tempdir, 'package1'))

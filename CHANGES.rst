@@ -5,7 +5,10 @@ Changelog of tags2sdists
 0.2 (unreleased)
 ----------------
 
-- Added creation (via zest.releaser) of single sdist tarball.
+- Added script that combines the sdist tarball creation with the target
+  directory parsing and that generates all the necessary tarballs.
+
+- Added creation (via zest.releaser) of a single sdist tarball.
 
 
 0.1 (2011-10-10)

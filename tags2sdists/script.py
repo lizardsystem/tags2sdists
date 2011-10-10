@@ -43,6 +43,10 @@ def main():
     package_dir.parse()
     checkout_base_dir = checkoutdir.CheckoutBaseDir(checkouts_dir)
     for directory in checkout_base_dir.checkout_dirs():
+        logger.debug("Looking at directory %s...", directory)
         checkout_dir = checkoutdir.CheckoutDir(directory)
-        logger.debug("Looking at package %s...", checkout_dir.package)
-
+        package = checkout_dir.package
+        for tag in checkout_dir.missing_tags(
+            existing_sdists=package_dir.packages[package]):
+            tarball = checkout_dir.create_sdist(tag)
+            package_dir.add_tarball(tarball, package)
