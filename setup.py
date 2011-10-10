@@ -12,6 +12,7 @@ long_description = '\n\n'.join([
 install_requires = [
     'pkginfo',
     'setuptools',
+    'zest.releaser',
     ],
 
 tests_require = [
@@ -19,13 +20,13 @@ tests_require = [
 
 setup(name='tags2sdists',
       version=version,
-      description="TODO",
+      description="Create python sdists from tags",
       long_description=long_description,
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[],
       keywords=[],
-      author='TODO',
-      author_email='TODO@nelen-schuurmans.nl',
+      author='Reinout van Rees',
+      author_email='reinout@vanrees.org',
       url='',
       license='GPL',
       packages=['tags2sdists'],
