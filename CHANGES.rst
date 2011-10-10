@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.1 (unreleased)
+0.1 (2011-10-10)
 ----------------
 
 - Added parsing of a target directory with sdists.
