@@ -3,6 +3,8 @@
 import logging
 import optparse
 
+from tags2sdists import checkoutdir
+from tags2sdists import packagedir
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +26,8 @@ def main():
     if len(args) != 2:
         parser.print_help()
         return 1
+    checkouts_dir = args[0]
+    sdists_dir = args[1]
     if options.verbose:
         log_level = logging.DEBUG
     elif options.quiet:
@@ -32,3 +36,13 @@ def main():
         log_level = logging.INFO
     logging.basicConfig(level=log_level,
                         format="%(levelname)s: %(message)s")
+
+    logger.info("Looking in %s for new sdists to generate into %s.",
+                checkouts_dir, sdists_dir)
+    package_dir = packagedir.PackageDir(sdists_dir)
+    package_dir.parse()
+    checkout_base_dir = checkoutdir.CheckoutBaseDir(checkouts_dir)
+    for directory in checkout_base_dir.checkout_dirs():
+        checkout_dir = checkoutdir.CheckoutDir(directory)
+        logger.debug("Looking at package %s...", checkout_dir.package)
+

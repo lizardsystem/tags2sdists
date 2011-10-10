@@ -54,29 +54,30 @@ class CheckoutBaseDir(object):
 class CheckoutDir(object):
     """Wrapper around a directory with a checkout in it."""
 
-    def __init__(self, directory, existing_sdists=None):
-        if existing_sdists is None:
-            self.existing_sdists = set()
-        else:
-            self.existing_sdists = set(existing_sdists)
+    def __init__(self, directory):
         self._missing_tags = None
         self.start_directory = os.getcwd()
         os.chdir(directory)
         self.wrapper = release.Releaser()
         self.wrapper.prepare()  # zest.releaser requirement.
+        self.package = self.wrapper.vcs.name
 
-    def missing_tags(self):
+    def missing_tags(self, existing_sdists=None):
         """Return difference between existing sdists and available tags."""
+        if existing_sdists is None:
+            existing_sdists = set()
+        else:
+            existing_sdists = set(existing_sdists)
         if self._missing_tags is None:
+            # So, this can only be called once, effectively :-)
             self._missing_tags = list(
-                set(self.wrapper.vcs.available_tags()) - self.existing_sdists)
+                set(self.wrapper.vcs.available_tags()) - existing_sdists)
         return self._missing_tags
 
     def create_sdist(self, tag):
         """Create an sdist and return the full file path of the .tar.gz."""
-        package = self.wrapper.vcs.name
         logger.info("Making tempdir for %s with tag %s...",
-                    package, tag)
+                    self.package, tag)
         self.wrapper.vcs.checkout_from_tag(tag)
         # checkout_from_tag() chdirs to a temp directory that we need to clean up
         # later.
@@ -84,7 +85,7 @@ class CheckoutDir(object):
         logger.debug("Tag checkout placed in %s", self.temp_tagdir)
         python = sys.executable
         logger.debug(command("%s setup.py sdist" % python))
-        tarball = find_tarball(self.temp_tagdir, package, tag)
+        tarball = find_tarball(self.temp_tagdir, self.package, tag)
         return tarball
 
     def cleanup(self):
