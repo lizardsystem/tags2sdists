@@ -1,5 +1,9 @@
 import collections
+import logging
 import os
+import shutil
+
+logger = logging.getLogger(__name__)
 
 
 class PackageDir(object):
@@ -29,3 +33,12 @@ class PackageDir(object):
                 version = sdist.replace('.tar.gz', '').replace(
                     package + '-', '')
                 self.packages[package].append(version)
+
+    def add_tarball(self, tarball, package):
+        """Add a tarball, possibly creating the directory if needed."""
+        target_dir = os.path.join(self.root_directory, package)
+        if not os.path.exists(target_dir):
+            os.mkdir(target_dir)
+            logger.info("Created %s", target_dir)
+        logger.debug("Copying tarball to %s", target_dir)
+        shutil.copy(tarball, target_dir)
