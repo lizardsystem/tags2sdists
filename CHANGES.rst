@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.2 (unreleased)
+0.2 (2011-10-11)
 ----------------
 
 - Added script that combines the sdist tarball creation with the target
