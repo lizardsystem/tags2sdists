@@ -40,5 +40,5 @@ class PackageDir(object):
         if not os.path.exists(target_dir):
             os.mkdir(target_dir)
             logger.info("Created %s", target_dir)
-        logger.debug("Copying tarball to %s", target_dir)
+        logger.info("Copying tarball to %s", target_dir)
         shutil.copy(tarball, target_dir)
