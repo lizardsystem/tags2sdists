@@ -4,7 +4,6 @@ version = '0.3dev'
 
 long_description = '\n\n'.join([
     open('README.rst').read(),
-    open('TODO.rst').read(),
     open('CREDITS.rst').read(),
     open('CHANGES.rst').read(),
     ])
