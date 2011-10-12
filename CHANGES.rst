@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.4 (unreleased)
+0.4 (2011-10-12)
 ----------------
 
 - Internally, the directories passed on the commandline are made
