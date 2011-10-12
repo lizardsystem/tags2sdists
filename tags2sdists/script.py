@@ -2,6 +2,7 @@
 
 import logging
 import optparse
+import os
 
 from tags2sdists import checkoutdir
 from tags2sdists import packagedir
@@ -28,6 +29,8 @@ def main():
         return 1
     checkouts_dir = args[0]
     sdists_dir = args[1]
+    checkouts_dir = os.path.abspath(checkouts_dir)
+    sdists_dir = os.path.abspath(sdists_dir)
     if options.verbose:
         log_level = logging.DEBUG
     elif options.quiet:

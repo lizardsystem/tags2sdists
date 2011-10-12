@@ -5,7 +5,8 @@ Changelog of tags2sdists
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Internally, the directories passed on the commandline are made
+  absolute. Necessary as there's quite some ``os.chdir()`` going around.
 
 
 0.3 (2011-10-12)
