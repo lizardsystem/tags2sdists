@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.3 (unreleased)
+0.3 (2011-10-12)
 ----------------
 
 - Added documentation.
