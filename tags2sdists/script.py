@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    """bin/make_sdists: create an sdist for a directory of checkouts."""
+    """bin/tags2sdists: create an sdist for a directory of checkouts."""
     usage = ("Usage: %prog CHECKOUTDIR SDISTDIR\n"
              "    CHECKOUTDIR: directory with checkouts\n"
              "    SDISTDIR: directory with sdist package directories")
