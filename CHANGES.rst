@@ -5,7 +5,9 @@ Changelog of tags2sdists
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added documentation.
+
+- Renamed script from make_sdists to tags2sdists.
 
 
 0.2 (2011-10-11)
