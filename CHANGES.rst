@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.5 (unreleased)
+0.5 (2011-10-17)
 ----------------
 
 - Fix for faulty setup.py's in checkout directories. An error in there would
