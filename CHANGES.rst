@@ -5,7 +5,9 @@ Changelog of tags2sdists
 0.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix for faulty setup.py's in checkout directories. An error in there would
+  generate a directory named ``Traceback\ (most\ recent\ call\ last):`` in the
+  sdist directory...
 
 
 0.4 (2011-10-12)

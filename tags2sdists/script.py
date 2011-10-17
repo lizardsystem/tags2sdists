@@ -49,6 +49,10 @@ def main():
         logger.debug("Looking at directory %s...", directory)
         checkout_dir = checkoutdir.CheckoutDir(directory)
         package = checkout_dir.package
+        if 'Traceback' in package:
+            # Some error in the setup.py and we don't want to have a Traceback
+            # directory in our sdists dir :-)
+            continue
         for tag in checkout_dir.missing_tags(
             existing_sdists=package_dir.packages[package]):
             tarball = checkout_dir.create_sdist(tag)
