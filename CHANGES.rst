@@ -5,7 +5,7 @@ Changelog of tags2sdists
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Compensating for a corner case where a package was renamed.
 
 
 0.5 (2011-10-17)

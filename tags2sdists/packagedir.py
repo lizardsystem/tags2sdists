@@ -36,6 +36,11 @@ class PackageDir(object):
 
     def add_tarball(self, tarball, package):
         """Add a tarball, possibly creating the directory if needed."""
+        if tarball is None:
+            logger.error(
+                "No tarball found for %s: probably a renamed project?",
+                package)
+            return
         target_dir = os.path.join(self.root_directory, package)
         if not os.path.exists(target_dir):
             os.mkdir(target_dir)
