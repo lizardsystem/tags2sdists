@@ -56,7 +56,7 @@ class CheckoutDir(object):
 
     def __init__(self, directory):
         self._missing_tags = None
-        self.start_directory = os.getcwd()
+        self.start_directory = directory
         os.chdir(directory)
         self.wrapper = release.Releaser()
         self.wrapper.prepare()  # zest.releaser requirement.
