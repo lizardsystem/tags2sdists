@@ -68,10 +68,12 @@ class CheckoutDir(object):
             existing_sdists = set()
         else:
             existing_sdists = set(existing_sdists)
+        logger.debug("Existing sdists: %s", existing_sdists)
         if self._missing_tags is None:
             # So, this can only be called once, effectively :-)
             self._missing_tags = list(
                 set(self.wrapper.vcs.available_tags()) - existing_sdists)
+        logger.debug("Missing sdists: %s", self._missing_tags)
         return self._missing_tags
 
     def create_sdist(self, tag):
