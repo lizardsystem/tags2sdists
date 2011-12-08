@@ -5,7 +5,9 @@ Changelog of tags2sdists
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added more logging related to 0.6's corner case.
+
+- Cleaning up the temp dir after a run.
 
 
 0.6 (2011-12-07)
