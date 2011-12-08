@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.7 (unreleased)
+0.7 (2011-12-08)
 ----------------
 
 - Added more logging related to 0.6's corner case.
