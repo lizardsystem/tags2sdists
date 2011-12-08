@@ -5,7 +5,7 @@ Changelog of tags2sdists
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Switching back to the correct directory after 0.7's temp dir cleanup.
 
 
 0.7 (2011-12-08)
