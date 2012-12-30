@@ -93,4 +93,10 @@ class CheckoutDir(object):
     def cleanup(self):
         """Clean up temporary tag checkout dir."""
         shutil.rmtree(self.temp_tagdir)
+        # checkout_from_tag might operate on a subdirectory (mostly
+        # 'gitclone'), so cleanup the parent dir as well
+        parentdir = os.path.dirname(self.temp_tagdir)
+        # ensure we don't remove anything important
+        if os.path.basename(parentdir).startswith(self.package):
+            os.rmdir(parentdir)
         os.chdir(self.start_directory)
