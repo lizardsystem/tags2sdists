@@ -2,8 +2,8 @@ Changelog of tags2sdists
 ===================================================
 
 
-0.7.2 (unreleased)
-------------------
+1.0 (2013-01-15)
+----------------
 
 - Fixed the temp dir cleanup: under certain circumstances it left an
   empty directory.
