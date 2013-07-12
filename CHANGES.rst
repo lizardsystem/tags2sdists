@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-1.1 (unreleased)
+1.1 (2013-07-12)
 ----------------
 
 - New way of searching for missing tags: we leave old
