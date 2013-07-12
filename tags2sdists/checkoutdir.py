@@ -3,6 +3,7 @@ import os
 import shutil
 import sys
 
+from pkg_resources import parse_version
 from zest.releaser import release
 
 from tags2sdists.utils import command
@@ -51,6 +52,10 @@ class CheckoutBaseDir(object):
         return [d for d in directories if os.path.isdir(d)]
 
 
+def sorted_versions(versions):
+    return sorted([parse_version(version) for version in versions])
+
+
 class CheckoutDir(object):
     """Wrapper around a directory with a checkout in it."""
 
@@ -65,17 +70,32 @@ class CheckoutDir(object):
     def missing_tags(self, existing_sdists=None):
         """Return difference between existing sdists and available tags."""
         if existing_sdists is None:
-            existing_sdists = set()
-        else:
-            existing_sdists = set(existing_sdists)
+            existing_sdists = []
         logger.debug("Existing sdists: %s", existing_sdists)
         if self._missing_tags is None:
-            # So, this can only be called once, effectively :-)
-            self._missing_tags = list(
-                set(self.wrapper.vcs.available_tags()) - existing_sdists)
-            # Corner case: 0.34dev tags, they trip up zest.releaser.
-            self._missing_tags = [tag for tag in self._missing_tags
-                                  if not 'dev' in tag]
+            missing = []
+            existing_sdists = sorted_versions(set(existing_sdists))
+            available = set(self.wrapper.vcs.available_tags())
+            available_tags = sorted_versions(available)
+            available_tags.reverse()
+            for tag in available_tags:
+                if 'dev' in tag:
+                    logger.warn("Dev marker in tag: %s, ignoring", tag)
+                    continue
+                if tag in existing_sdists:
+                    logger.debug(
+                        "Tag %s is already available, not looking further",
+                        tag)
+                    break
+                else:
+                    missing.append(tag)
+                    logger.debug("Tag %s is missing", tag)
+            missing.reverse()
+            # Convert back to proper strings:
+            mapping = {}
+            for tag in available:
+                mapping[parse_version(tag)] = tag
+            self._missing_tags = [mapping[tag] for tag in missing]
         logger.debug("Missing sdists: %s", self._missing_tags)
         return self._missing_tags
 
