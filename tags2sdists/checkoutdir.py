@@ -73,6 +73,9 @@ class CheckoutDir(object):
             # So, this can only be called once, effectively :-)
             self._missing_tags = list(
                 set(self.wrapper.vcs.available_tags()) - existing_sdists)
+            # Corner case: 0.34dev tags, they trip up zest.releaser.
+            self._missing_tags = [tag for tag in self._missing_tags
+                                  if not 'dev' in tag]
         logger.debug("Missing sdists: %s", self._missing_tags)
         return self._missing_tags
 
