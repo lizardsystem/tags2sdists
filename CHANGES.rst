@@ -5,7 +5,11 @@ Changelog of tags2sdists
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- New way of searching for missing tags: we leave old
+  unneeded/wrong/renamed ones alone.
+
+- Removing tags with 'dev' in their name from the list of missing
+  tags.
 
 
 1.0 (2013-01-15)
