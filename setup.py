@@ -10,7 +10,7 @@ long_description = '\n\n'.join([
 
 install_requires = [
     'pkginfo',
-    'setuptools',
+    'setuptools >= 16.0',
     'zest.releaser',
     ],
 
