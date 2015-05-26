@@ -79,8 +79,8 @@ class CheckoutDir(object):
             available_tags = sorted_versions(available)
             available_tags.reverse()
             for tag in available_tags:
-                if 'dev' in tag:
-                    logger.warn("Dev marker in tag: %s, ignoring", tag)
+                if tag.is_prerelease:
+                    logger.warn("Pre-release marker in tag: %s, ignoring", tag)
                     continue
                 if tag in existing_sdists:
                     logger.debug(
