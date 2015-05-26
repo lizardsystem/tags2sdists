@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-1.2 (unreleased)
+1.2 (2015-05-26)
 ----------------
 
 - Compensating for newer setuptools versions.
