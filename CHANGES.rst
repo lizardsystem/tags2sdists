@@ -5,7 +5,7 @@ Changelog of tags2sdists
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Continue after a failing sdist.
 
 
 1.2 (2015-05-26)
