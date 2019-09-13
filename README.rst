@@ -124,6 +124,7 @@ Development
 
 To run the tests, install ``tox`` globally and just run it.
 
-- The source code is on https://github.com/lizardsystem/tags2sdists/ .
+For local testing, install it with virtualenv and pip::
 
-- Bugs can be reported on https://github.com/lizardsystem/tags2sdists/issues .
+  $ python3 -m venv .
+  $ bin/pip install -e .
