@@ -8,7 +8,7 @@ long_description = "\n\n".join(
 
 install_requires = (["pkginfo", "setuptools >= 16.0", "zest.releaser >= 4.0"],)
 
-tests_require = []
+tests_require = ["pytest"]
 
 setup(
     name="tags2sdists",
