@@ -27,8 +27,8 @@ zest.releaser. We test everything on ourselves:
     ...     'tags2sdists', '')
     >>> checkout_dir = checkoutdir.CheckoutDir(
     ...     os.path.join(testdir, '..'))
-    >>> checkout_dir.wrapper.vcs.available_tags()[0]
-    '0.1'
+    >>> print(checkout_dir.wrapper.vcs.available_tags()[0])
+    0.1
 
 ``.wrapper.vcs.something``: yes, zest.releaser also does some wrapping, so it
 is a bit wrapper inside wrapper, but that's ok. We're only interested in the
