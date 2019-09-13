@@ -8,6 +8,7 @@ Changelog of tags2sdists
 - Updated setup (pytest, tox, travis-ci integration, etc).
 
 
+
 1.2 (2015-05-26)
 ----------------
 
