@@ -3,7 +3,7 @@ Packagedir wraps a directory with source distributions:
     >>> from tags2sdists import packagedir
     >>> package_dir = packagedir.PackageDir(None)
     >>> package_dir.packages
-    defaultdict(<type 'list'>, {})
+    defaultdict(<... 'list'>, {})
 
 We have a testdir with some dummy packages for testing the parsing of the
 directory structure:
