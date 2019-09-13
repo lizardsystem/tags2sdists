@@ -26,20 +26,21 @@ class PackageDir(object):
             if not os.path.isdir(directory):
                 continue
             dir_contents = os.listdir(directory)
-            sdists = [tarball for tarball in dir_contents
-                      if (tarball.endswith('.tar.gz')
-                          and tarball.startswith(package + '-'))]
+            sdists = [
+                tarball
+                for tarball in dir_contents
+                if (tarball.endswith(".tar.gz") and tarball.startswith(package + "-"))
+            ]
             for sdist in sdists:
-                version = sdist.replace('.tar.gz', '').replace(
-                    package + '-', '')
+                version = sdist.replace(".tar.gz", "").replace(package + "-", "")
                 self.packages[package].append(version)
 
     def add_tarball(self, tarball, package):
         """Add a tarball, possibly creating the directory if needed."""
         if tarball is None:
             logger.error(
-                "No tarball found for %s: probably a renamed project?",
-                package)
+                "No tarball found for %s: probably a renamed project?", package
+            )
             return
         target_dir = os.path.join(self.root_directory, package)
         if not os.path.exists(target_dir):
