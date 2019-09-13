@@ -2,6 +2,8 @@
 
 # Pyc/pyo files.
 *.py[co]
+*~
+__pycache__
 
 # Packages
 *.egg

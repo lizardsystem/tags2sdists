@@ -1,0 +1,10 @@
+sudo: false
+language: python
+git:
+  depth: false
+  # ^^^ otherwise we don't fetch all our tags (which we need for a test).
+python:
+  - "2.7"
+  - "3.7"
+install: pip install tox-travis
+script: tox

@@ -5,7 +5,9 @@ Changelog of tags2sdists
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Updated setup (pytest, tox, travis-ci integration, etc).
+
+- Made tags2sdists python3 compatible (tox tests 2.7 and 3.7).
 
 
 1.2 (2015-05-26)

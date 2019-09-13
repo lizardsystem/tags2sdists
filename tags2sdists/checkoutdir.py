@@ -53,7 +53,7 @@ class CheckoutBaseDir(object):
             os.path.join(self.base_directory, d)
             for d in os.listdir(self.base_directory)
         ]
-        return [d for d in directories if os.path.isdir(d)]
+        return sorted([d for d in directories if os.path.isdir(d)])
 
 
 def sorted_versions(versions):
