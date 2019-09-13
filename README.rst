@@ -122,7 +122,8 @@ In buildout, you can set it like this::
 Development
 -----------
 
+To run the tests, install ``tox`` globally and just run it.
+
 - The source code is on https://github.com/lizardsystem/tags2sdists/ .
 
 - Bugs can be reported on https://github.com/lizardsystem/tags2sdists/issues .
-
