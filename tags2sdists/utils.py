@@ -21,7 +21,7 @@ def command(cmd):
 
     """
     status, out = commands.getstatusoutput(cmd)
-    if status is not 0:
+    if status != 0:
         logger.error("Something went wrong:")
         logger.error(out)
         raise SdistCreationError()
