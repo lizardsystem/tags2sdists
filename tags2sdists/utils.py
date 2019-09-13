@@ -1,4 +1,8 @@
-import commands
+try:
+    from subprocess import getstatusoutput  # Python 3
+except ImportError:
+    from commands import getstatusoutput  # Python 2
+
 import logging
 
 
@@ -20,7 +24,7 @@ def command(cmd):
       SdistCreationError
 
     """
-    status, out = commands.getstatusoutput(cmd)
+    status, out = getstatusoutput(cmd)
     if status != 0:
         logger.error("Something went wrong:")
         logger.error(out)
