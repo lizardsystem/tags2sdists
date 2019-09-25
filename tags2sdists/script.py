@@ -58,6 +58,7 @@ def main():
     package_dir.parse()
     checkout_base_dir = checkoutdir.CheckoutBaseDir(checkouts_dir)
     for directory in checkout_base_dir.checkout_dirs():
+        # TODO: add a multiprocessing pool here.
         logger.debug("Looking at directory %s...", directory)
         checkout_dir = checkoutdir.CheckoutDir(directory)
         package = checkout_dir.package
