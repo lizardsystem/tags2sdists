@@ -86,11 +86,18 @@ class CheckoutDir(object):
                 if tag.is_prerelease:
                     logger.warn("Pre-release marker in tag: %s, ignoring", tag)
                     continue
-                if tag in existing_sdists and not build_all:
-                    logger.debug(
-                        "Tag %s is already available, not looking further", tag
-                    )
-                    break
+                if tag in existing_sdists:
+                    if not build_all:
+                        # Tag found. We're looking from the newest to the oldest.
+                        # We're not building all tags, so we omit (possibly faulty)
+                        # older tags. (This is the default).
+                        logger.debug(
+                            "Tag %s is already available, not looking further", tag
+                        )
+                        break
+                    else:
+                        # Tag found. We keep looking. (--build-all has been used)
+                        continue
                 else:
                     missing.append(tag)
                     logger.debug("Tag %s is missing", tag)
