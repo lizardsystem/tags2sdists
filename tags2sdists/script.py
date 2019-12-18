@@ -34,6 +34,14 @@ def main():
         default=False,
         help="Show minimal output",
     )
+    parser.add_option(
+        "-a",
+        "--build-all",
+        action="store_true",
+        dest="build_all",
+        default=False,
+        help="Build all releases (=don't stop if the newest tag is found)",
+    )
     (options, args) = parser.parse_args()
 
     if len(args) != 2:
@@ -67,7 +75,8 @@ def main():
             # directory in our sdists dir :-)
             continue
         for tag in checkout_dir.missing_tags(
-            existing_sdists=package_dir.packages[package]
+                existing_sdists=package_dir.packages[package],
+                build_all=options.build_all,
         ):
             tarball = checkout_dir.create_sdist(tag)
             package_dir.add_tarball(tarball, package)

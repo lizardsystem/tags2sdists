@@ -33,9 +33,14 @@ Tags2sdists provides the ``tags2sdists`` command::
         SDISTDIR: directory with sdist package directories
 
     Options:
-      -h, --help     show this help message and exit
-      -v, --verbose  Show debug output
-      -q, --quiet    Show minimal output
+      -a, --build-all Build all releases (=don't stop if the newest tag is found)
+      -h, --help      Show this help message and exit
+      -v, --verbose   Show debug output
+      -q, --quiet     Show minimal output
+
+Witn ``--build-all``, all the tags are build. The default behaviour helps with
+mis-behaving old tags, but if all the packages are clean, ``--build-all`` is a
+good choice as also bugfix releases for older versions are build.
 
 
 Setup

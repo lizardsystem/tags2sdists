@@ -71,7 +71,7 @@ class CheckoutDir(object):
         self.wrapper.prepare()  # zest.releaser requirement.
         self.package = self.wrapper.vcs.name
 
-    def missing_tags(self, existing_sdists=None):
+    def missing_tags(self, existing_sdists=None, build_all=False):
         """Return difference between existing sdists and available tags."""
         if existing_sdists is None:
             existing_sdists = []
@@ -86,7 +86,7 @@ class CheckoutDir(object):
                 if tag.is_prerelease:
                     logger.warn("Pre-release marker in tag: %s, ignoring", tag)
                     continue
-                if tag in existing_sdists:
+                if tag in existing_sdists and not build_all:
                     logger.debug(
                         "Tag %s is already available, not looking further", tag
                     )

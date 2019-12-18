@@ -5,7 +5,8 @@ Changelog of tags2sdists
 1.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added --build-all option: don't stop if the latest tag is found, but just
+  build all the tags.
 
 
 1.3 (2019-09-13)
