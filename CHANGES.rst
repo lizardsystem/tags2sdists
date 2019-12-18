@@ -5,7 +5,7 @@ Changelog of tags2sdists
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fixed bug in condition from 1.4...
 
 
 1.4 (2019-12-18)
