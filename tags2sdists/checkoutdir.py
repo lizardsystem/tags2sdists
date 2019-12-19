@@ -107,7 +107,10 @@ class CheckoutDir(object):
             for tag in available:
                 mapping[parse_version(tag)] = tag
             self._missing_tags = [mapping[tag] for tag in missing]
-        logger.debug("Missing sdists: %s", self._missing_tags)
+        if self._missing_tags:
+            logger.info("Missing sdists for %s: %s", self.package, self._missing_tags)
+        else:
+            logger.info("Ok: %s", self.package)
         return self._missing_tags
 
     def create_sdist(self, tag):

@@ -5,7 +5,8 @@ Changelog of tags2sdists
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Small change in logging: make progress clearer by showing each package's
+  name. This includes a list of missing sdists (if any).
 
 
 1.4.1 (2019-12-18)
