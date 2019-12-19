@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-1.5 (unreleased)
+1.5 (2019-12-19)
 ----------------
 
 - Small change in logging: make progress clearer by showing each package's
