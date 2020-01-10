@@ -6,7 +6,7 @@ import sys
 from pkg_resources import parse_version
 from zest.releaser import release
 
-from tags2sdists.utils import command
+from tags2sdists.utils import command, SdistCreationError
 
 logger = logging.getLogger(__name__)
 
@@ -122,7 +122,11 @@ class CheckoutDir(object):
         self.temp_tagdir = os.path.realpath(os.getcwd())
         logger.debug("Tag checkout placed in %s", self.temp_tagdir)
         python = sys.executable
-        logger.debug(command("%s setup.py sdist" % python))
+        try:
+            logger.debug(command("%s setup.py sdist" % python))
+        except SdistCreationError:
+            logger.error("Sdist exception while building %s" % tag)
+            return
         tarball = find_tarball(self.temp_tagdir, self.package, tag)
         return tarball
 
