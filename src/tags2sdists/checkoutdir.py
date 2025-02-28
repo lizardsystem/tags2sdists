@@ -3,7 +3,7 @@ import os
 import shutil
 import sys
 
-from pkg_resources import parse_version
+from packaging.version import parse as parse_version
 from zest.releaser import release
 
 from tags2sdists.utils import command

@@ -11,6 +11,7 @@ requires-python = ">=3.12"
 license = {"file"= "LICENSE.rst"}
 authors = [{"name"= "Reinout van Rees", "email"= "reinout@vanrees.org"}]
 dependencies = [
+    "packaging>=24.2",
     "pkginfo",
     "setuptools",
     "zest.releaser",
