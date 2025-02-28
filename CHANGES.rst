@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-2.1 (unreleased)
+2.1 (2025-02-28)
 ----------------
 
 - Allow generated packages with underscores in the name
