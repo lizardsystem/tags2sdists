@@ -46,17 +46,13 @@ good choice as also bugfix releases for older versions are build.
 Setup
 -----
 
-Installing tags2sdists itself is as simple as ``pip install tags2sdists`` or
-``easy_install tags2sdists`` or including it in your buildout in the regular
-manner.
+Installing tags2sdists itself is as simple as ``pip install tags2sdists``.
 
 Next you need the CHECKOUTDIR and SDISTDIR directories.
 
-**CHECKOUTDIR**: you need a directory with checkouts. So doing it by hand is
-fine. But when you use svn, a directory with ``svn:externals`` is probably
-handiest. For everything else (and also for svn), `checkoutmanager
-<http://pypi.python.org/pypi/checkoutmanager>`_ is the thing I'd use. Make a
-config file (``checkoutmanager.cfg``) looking like this::
+**CHECKOUTDIR**: you need a directory with checkouts. So doing it by hand is fine, but
+`checkoutmanager <http://pypi.python.org/pypi/checkoutmanager>`_ is the thing I'd
+use. Make a config file (``checkoutmanager.cfg``) looking like this::
 
     [internalprojects]
     vcs = git
@@ -111,10 +107,10 @@ Here's an example apache config snippet::
 Using the apache-served index
 -----------------------------
 
-You can use such a custom apache-served index in two ways.  Easy_install has a
+You can use such a custom apache-served index in two ways.  Pip has a
 ``-i`` option for passing along an index::
 
-    $> easy_install -i http://packages.my.server/ zest.releaser
+    $ pip install -i http://packages.my.server/ zest.releaser
 
 In buildout, you can set it like this::
 
@@ -127,7 +123,8 @@ In buildout, you can set it like this::
 Development
 -----------
 
-For local testing, install it with virtualenv and pip::
+For local testing, install it with ``uv``::
 
-  $ python3 -m venv .
-  $ bin/pip install -e .
+    $ uv sync
+    $ uv run pytest
+    $ pre-commit run --all
