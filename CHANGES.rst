@@ -5,7 +5,11 @@ Changelog of tags2sdists
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Allow generated packages with underscores in the name
+  (``clean_python-0.16.5-py3-none-any.whl`` instead of
+  ``clean-python-0.16.5-py3-none-any.whl``). Somehow one of the packages I tested it on
+  created underscore-names for the package, weirdly enough, with just a standard
+  ``python -m build`` call, something that I didn't expect.
 
 
 2.0 (2025-02-28)
