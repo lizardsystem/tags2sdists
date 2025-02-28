@@ -30,3 +30,11 @@ release = true
 
 [tool.pytest.ini_options]
 addopts = "--doctest-glob=*.rst tags2sdists"
+
+[tool.pyright]
+# Pyright/pylance/vscode configuration.
+# Note: if you want a different setup, you can overwrite this with a
+# "pyrightconfig.json", which takes precedence.
+include = ["src"]
+venvPath = "."
+venv = ".venv"
