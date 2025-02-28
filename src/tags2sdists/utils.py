@@ -16,12 +16,12 @@ class SdistCreationError(Exception):
 def command(cmd):
     """Execute command and raise an exception upon an error.
 
-      >>> 'README' in command('ls')
-      True
-      >>> command('nonexistingcommand')  #doctest: +ELLIPSIS
-      Traceback (most recent call last):
-      ...
-      SdistCreationError
+    >>> 'README' in command('ls')
+    True
+    >>> command('nonexistingcommand')  #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    SdistCreationError
 
     """
     status, out = getstatusoutput(cmd)
