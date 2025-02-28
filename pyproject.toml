@@ -1,20 +1,23 @@
 [build-system]
 requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "tags2sdists"
 version = "1.6.dev0"
-description="Create python sdists from tags",
+description="Create python sdists from tags"
 readme = "README.rst"  # TODO: "CHANGES.rst"
 requires-python = ">=3.12"
-license = "GPL"
-authors = [{"name": "Reinout van Rees", "email": "reinout@vanrees.org"}]
-project_urls = {"github": "https://github.com/lizardsystem/tags2sdists/"}
+license = {"file"= "LICENSE.rst"}
+authors = [{"name"= "Reinout van Rees", "email"= "reinout@vanrees.org"}]
 dependencies = [
     "pkginfo",
     "setuptools",
     "zest.releaser",
 ]
+
+[project.urls]
+Repository = "https://github.com/lizardsystem/tags2sdists/"
 
 [project.scripts]
 tags2sdists = "tags2sdists.script:main"
@@ -29,7 +32,7 @@ select = ["E4", "E7", "E9", "F", "I", "UP"]
 release = true
 
 [tool.pytest.ini_options]
-addopts = "--doctest-glob=*.rst tags2sdists"
+addopts = "--doctest-glob=*.rst"
 
 [tool.pyright]
 # Pyright/pylance/vscode configuration.
@@ -38,3 +41,8 @@ addopts = "--doctest-glob=*.rst tags2sdists"
 include = ["src"]
 venvPath = "."
 venv = ".venv"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+]
