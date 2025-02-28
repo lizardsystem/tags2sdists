@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-1.6 (unreleased)
+2.0 (unreleased)
 ----------------
 
 - Nothing changed yet.
