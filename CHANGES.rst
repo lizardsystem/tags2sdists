@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-2.0 (unreleased)
+2.0 (2025-02-28)
 ----------------
 
 - Updated the project for pyproject.toml and newer version numbers.
