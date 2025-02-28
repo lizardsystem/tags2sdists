@@ -26,7 +26,7 @@ zest.releaser. We test everything on ourselves:
     >>> testdir = pkg_resources.resource_filename(
     ...     'tags2sdists', '')
     >>> checkout_dir = checkoutdir.CheckoutDir(
-    ...     os.path.join(testdir, '..'))
+    ...     os.path.join(testdir, '..', '..'))
     >>> print(sorted(checkout_dir.wrapper.vcs.available_tags())[0])
     0.1
 
@@ -41,7 +41,7 @@ If we tell CheckoutDir that 0.1 is already an existing sdist, it won't be
 reported as a missing tag:
 
     >>> checkout_dir = checkoutdir.CheckoutDir(
-    ...     os.path.join(testdir, '..'))
+    ...     os.path.join(testdir, '..', '..'))
     >>> '0.1' in checkout_dir.missing_tags(existing_sdists=['0.1'])
     False
 
