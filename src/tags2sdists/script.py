@@ -77,6 +77,7 @@ def main():
             existing_sdists=package_dir.packages[package],
             build_all=options.build_all,
         ):
-            tarball = checkout_dir.create_sdist(tag)
-            package_dir.add_tarball(tarball, package)
+            tarballs = checkout_dir.create_sdists(tag)
+            for tarball in tarballs:
+                package_dir.add_tarball(tarball, package)
             checkout_dir.cleanup()

@@ -44,8 +44,8 @@ reported as a missing tag:
 
 Create an sdist of 0.1:
 
-    >>> print('start'), checkout_dir.create_sdist('0.1')  #doctest: +ELLIPSIS
+    >>> print('start'), checkout_dir.create_sdists('0.1')  #doctest: +ELLIPSIS
     start...
-    >>> os.listdir(os.path.join(checkout_dir.temp_tagdir, 'dist'))[0]
-    'tags2sdists-0.1.tar.gz'
+    >>> sorted(os.listdir(os.path.join(checkout_dir.temp_tagdir, 'dist')))
+    ['tags2sdists-0.1-py3-none-any.whl', 'tags2sdists-0.1.tar.gz']
     >>> checkout_dir.cleanup()  # Remove the temp tag dir.
