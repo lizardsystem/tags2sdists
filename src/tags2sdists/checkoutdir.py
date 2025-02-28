@@ -28,7 +28,10 @@ def find_tarballs(directory: Path, name: str, version: str) -> list[Path]:
         tarball
         for tarball in dir_contents
         if (tarball.endswith(".gz") or tarball.endswith(".whl"))
-        and tarball.startswith(name + "-" + version)
+        and (
+            tarball.startswith(name + "-" + version)
+            or tarball.startswith(name.replace("-", "_") + "-" + version)
+        )
     ]
     if not candidates:
         logger.error(
