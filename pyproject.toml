@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools"]
+
+[project]
+name = "tags2sdists"
+version = "1.6.dev0"
+description="Create python sdists from tags",
+readme = "README.rst"  # TODO: "CHANGES.rst"
+requires-python = ">=3.12"
+license = "GPL"
+authors = [{"name": "Reinout van Rees", "email": "reinout@vanrees.org"}]
+project_urls = {"github": "https://github.com/lizardsystem/tags2sdists/"}
+dependencies = [
+    "pkginfo",
+    "setuptools",
+    "zest.releaser",
+]
+
+[project.scripts]
+tags2sdists = "tags2sdists.script:main"
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.zest-releaser]
+release = true
+
+[tool.pytest.ini_options]
+addopts = "--doctest-glob=*.rst tags2sdists"
