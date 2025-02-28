@@ -3,7 +3,7 @@ from setuptools import setup
 version = "1.6.dev0"
 
 long_description = "\n\n".join(
-    [open("README.rst").read(), open("CREDITS.rst").read(), open("CHANGES.rst").read()]
+    [open("README.rst").read(), open("CHANGES.rst").read()]
 )
 
 install_requires = (["pkginfo", "setuptools >= 16.0", "zest.releaser >= 4.0"],)

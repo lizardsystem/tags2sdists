@@ -127,8 +127,6 @@ In buildout, you can set it like this::
 Development
 -----------
 
-To run the tests, install ``tox`` globally and just run it.
-
 For local testing, install it with virtualenv and pip::
 
   $ python3 -m venv .
