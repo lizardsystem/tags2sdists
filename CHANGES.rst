@@ -2,10 +2,14 @@ Changelog of tags2sdists
 ===================================================
 
 
-1.6 (unreleased)
+2.0 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Updated the project for pyproject.toml and newer version numbers.
+
+- Using ``python -m build`` instead of ``python setup.py build`` to build packages in
+  the modern way. Supports ``pyproject.toml``-projects. And... we're building source
+  wheels now.
 
 
 1.5 (2019-12-19)

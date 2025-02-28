@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tags2sdists"
+version = "2.0.dev0"
+description="Create python sdists from tags"
+readme = "README.rst"  # TODO: "CHANGES.rst"
+requires-python = ">=3.12"
+license = {"file"= "LICENSE.rst"}
+authors = [{"name"= "Reinout van Rees", "email"= "reinout@vanrees.org"}]
+dependencies = [
+    "packaging>=24.2",
+    "pkginfo",
+    "setuptools",
+    "zest.releaser",
+]
+
+[project.urls]
+Repository = "https://github.com/lizardsystem/tags2sdists/"
+
+[project.scripts]
+tags2sdists = "tags2sdists.script:main"
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.zest-releaser]
+release = true
+
+[tool.pytest.ini_options]
+addopts = "--doctest-glob=*.rst"
+
+[tool.pyright]
+# Pyright/pylance/vscode configuration.
+# Note: if you want a different setup, you can overwrite this with a
+# "pyrightconfig.json", which takes precedence.
+include = ["src"]
+venvPath = "."
+venv = ".venv"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+]

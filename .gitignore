@@ -1,40 +1,44 @@
-# From https://github.com/github/gitignore/blob/master/Python.gitignore
-
-# Pyc/pyo files.
+# Pyc/pyo/backup files.
 *.py[co]
 *~
-__pycache__
+*.swp
+*.pyc
+.DS_Store
 
-# Packages
+# Packages/buildout/pip/pipenv
 *.egg
 *.egg-info
-dist
-build
-eggs
-parts
-bin
-var
 sdist
-develop-eggs
-.installed.cfg
-lib/
-lib64
-pyvenv.cfg
-
-# Installer logs
 pip-log.txt
+bower_components/
+node_modules/
+doc/build/
+ansible/*.retry
+.venv
+venv
+bin/
+lib/
+pyvenv.cfg
+dist/
+var/
+*.suggestion
+
+# Our generated files
+for_step_summary.md
 
 # Unit test / coverage reports
 .coverage
 .tox
-nosetests.xml
+htmlcov
+.codeintel
+coverage.*
+.pytest_cache
 
-#Translations
-*.mo
+# Pycharm, visual studio
+.idea
+.vscode
 
-#Mr Developer
-.mr.developer.cfg
-src
+# Docker
+docker-compose.override.yml
 
-# Ignore generated apache config files
-etc/*.apache.conf
+### Extra lines below are preserved ###

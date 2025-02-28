@@ -2,8 +2,9 @@ import logging
 import os
 import shutil
 import sys
+from pathlib import Path
 
-from pkg_resources import parse_version
+from packaging.version import parse as parse_version
 from zest.releaser import release
 
 from tags2sdists.utils import command
@@ -11,8 +12,8 @@ from tags2sdists.utils import command
 logger = logging.getLogger(__name__)
 
 
-def find_tarball(directory, name, version):
-    """Return matching tarball filename from dist/ dir (if found).
+def find_tarballs(directory: Path, name: str, version: str) -> list[Path]:
+    """Return matching tarball/wheel paths from dist/ dir (if found).
 
     Setuptools generates a source distribution in a ``dist/`` directory and we
     need to find the exact filename, whether .tgz or .zip.
@@ -26,22 +27,20 @@ def find_tarball(directory, name, version):
     candidates = [
         tarball
         for tarball in dir_contents
-        if tarball.endswith(".gz") and tarball.startswith(name + "-" + version)
+        if (tarball.endswith(".gz") or tarball.endswith(".whl"))
+        and tarball.startswith(name + "-" + version)
     ]
     if not candidates:
         logger.error(
             "No recognizable distribution found for %s, version %s", name, version
         )
         logger.error("Contents of %s: %r", directory, dir_contents)
-        return
-    if len(candidates) > 1:
-        # Should not happen.
-        logger.warn("More than one candidate distribution found: %r", candidates)
-    tarball = candidates[0]
-    return os.path.join(directory, "dist", tarball)
+        return []
+    tarballs = [(directory / "dist" / candidate) for candidate in candidates]
+    return tarballs
 
 
-class CheckoutBaseDir(object):
+class CheckoutBaseDir:
     """Wrapper around the directory containing the checkout directories."""
 
     def __init__(self, base_directory):
@@ -60,7 +59,7 @@ def sorted_versions(versions):
     return sorted([parse_version(version) for version in versions])
 
 
-class CheckoutDir(object):
+class CheckoutDir:
     """Wrapper around a directory with a checkout in it."""
 
     def __init__(self, directory):
@@ -113,18 +112,18 @@ class CheckoutDir(object):
             logger.info("Ok: %s", self.package)
         return self._missing_tags
 
-    def create_sdist(self, tag):
-        """Create an sdist and return the full file path of the .tar.gz."""
+    def create_sdists(self, tag: str) -> list[Path]:
+        """Create an sdist/wheel and return the full file paths of the .tar.gz. and .whl"""
         logger.info("Making tempdir for %s with tag %s...", self.package, tag)
         self.wrapper.vcs.checkout_from_tag(tag)
         # checkout_from_tag() chdirs to a temp directory that we need to clean up
         # later.
-        self.temp_tagdir = os.path.realpath(os.getcwd())
+        self.temp_tagdir = Path(os.path.realpath(os.getcwd()))
         logger.debug("Tag checkout placed in %s", self.temp_tagdir)
         python = sys.executable
-        logger.debug(command("%s setup.py sdist" % python))
-        tarball = find_tarball(self.temp_tagdir, self.package, tag)
-        return tarball
+        logger.debug(command(f"{python} -m build"))
+        tarballs = find_tarballs(self.temp_tagdir, self.package, tag)
+        return tarballs
 
     def cleanup(self):
         """Clean up temporary tag checkout dir."""

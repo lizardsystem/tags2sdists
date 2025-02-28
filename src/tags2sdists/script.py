@@ -4,8 +4,7 @@ import logging
 import optparse
 import os
 
-from tags2sdists import checkoutdir
-from tags2sdists import packagedir
+from tags2sdists import checkoutdir, packagedir
 
 logger = logging.getLogger(__name__)
 
@@ -75,9 +74,10 @@ def main():
             # directory in our sdists dir :-)
             continue
         for tag in checkout_dir.missing_tags(
-                existing_sdists=package_dir.packages[package],
-                build_all=options.build_all,
+            existing_sdists=package_dir.packages[package],
+            build_all=options.build_all,
         ):
-            tarball = checkout_dir.create_sdist(tag)
-            package_dir.add_tarball(tarball, package)
+            tarballs = checkout_dir.create_sdists(tag)
+            for tarball in tarballs:
+                package_dir.add_tarball(tarball, package)
             checkout_dir.cleanup()
