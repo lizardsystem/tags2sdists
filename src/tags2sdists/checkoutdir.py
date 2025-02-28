@@ -41,7 +41,7 @@ def find_tarball(directory, name, version):
     return os.path.join(directory, "dist", tarball)
 
 
-class CheckoutBaseDir(object):
+class CheckoutBaseDir:
     """Wrapper around the directory containing the checkout directories."""
 
     def __init__(self, base_directory):
@@ -60,7 +60,7 @@ def sorted_versions(versions):
     return sorted([parse_version(version) for version in versions])
 
 
-class CheckoutDir(object):
+class CheckoutDir:
     """Wrapper around a directory with a checkout in it."""
 
     def __init__(self, directory):
@@ -122,7 +122,7 @@ class CheckoutDir(object):
         self.temp_tagdir = os.path.realpath(os.getcwd())
         logger.debug("Tag checkout placed in %s", self.temp_tagdir)
         python = sys.executable
-        logger.debug(command("%s setup.py sdist" % python))
+        logger.debug(command(f"{python} setup.py sdist"))
         tarball = find_tarball(self.temp_tagdir, self.package, tag)
         return tarball
 

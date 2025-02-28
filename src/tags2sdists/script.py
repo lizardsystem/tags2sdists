@@ -4,8 +4,7 @@ import logging
 import optparse
 import os
 
-from tags2sdists import checkoutdir
-from tags2sdists import packagedir
+from tags2sdists import checkoutdir, packagedir
 
 logger = logging.getLogger(__name__)
 

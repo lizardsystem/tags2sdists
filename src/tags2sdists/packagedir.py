@@ -6,7 +6,7 @@ import shutil
 logger = logging.getLogger(__name__)
 
 
-class PackageDir(object):
+class PackageDir:
     """Wrapper around the target package directory.
 
     So: directories named after packages with package-VERSION.tar.gz files in
