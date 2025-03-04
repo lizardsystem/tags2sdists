@@ -487,7 +487,7 @@ wheels = [
 
 [[package]]
 name = "tags2sdists"
-version = "2.0.dev0"
+version = "2.2.dev0"
 source = { editable = "." }
 dependencies = [
     { name = "packaging" },
@@ -506,7 +506,7 @@ requires-dist = [
     { name = "packaging", specifier = ">=24.2" },
     { name = "pkginfo" },
     { name = "setuptools" },
-    { name = "zest-releaser" },
+    { name = "zest-releaser", specifier = ">=9.3.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -543,7 +543,7 @@ wheels = [
 
 [[package]]
 name = "zest-releaser"
-version = "9.2.0"
+version = "9.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "build" },
@@ -553,4 +553,7 @@ dependencies = [
     { name = "setuptools" },
     { name = "twine" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b3/db/e9ff1b6d08a6a0cff944803abafa4658d6725e8d367ed810dc2db63b8a55/zest.releaser-9.2.0.tar.gz", hash = "sha256:f6cdbb15a125838144135176182e42d5b04eaae467df9d7b1e77ac24dd4d6266", size = 120373 }
+sdist = { url = "https://files.pythonhosted.org/packages/33/13/c74c30d1d278d9149bff18d1de850bae83e2d21b29bac754b61a7fade9fe/zest_releaser-9.3.0.tar.gz", hash = "sha256:e66bc85d0edd6fc6f4317da2f00e6af05f33b4eb3c2086bf5217da8f7ae47c16", size = 121137 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a2/74/553eb1d865e72da0534536c6a52e9142edab5f96fe10b3c96bd1d48ed3d5/zest.releaser-9.3.0-py3-none-any.whl", hash = "sha256:d534174110fda0efbe7890c86db581568ace6ca56f2617ad829b945ea16880f4", size = 100293 },
+]
