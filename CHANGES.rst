@@ -5,7 +5,7 @@ Changelog of tags2sdists
 2.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Don't fail on unparseable version strings.
 
 
 2.4 (2025-03-05)

@@ -4,6 +4,7 @@ import shutil
 import sys
 from pathlib import Path
 
+import packaging
 from packaging.version import parse as parse_version
 from zest.releaser import release
 
@@ -59,7 +60,14 @@ class CheckoutBaseDir:
 
 
 def sorted_versions(versions):
-    return sorted([parse_version(version) for version in versions])
+    result = []
+    for version in versions:
+        try:
+            result.append(parse_version(version))
+        except packaging.version.InvalidVersion:
+            logger.warning(f"Tag found that isn't a valid version: {version}")
+
+    return result
 
 
 class CheckoutDir:
@@ -86,7 +94,7 @@ class CheckoutDir:
             available_tags.reverse()
             for tag in available_tags:
                 if tag.is_prerelease:
-                    logger.warn("Pre-release marker in tag: %s, ignoring", tag)
+                    logger.warning("Pre-release marker in tag: %s, ignoring", tag)
                     continue
                 if tag in existing_sdists:
                     if not build_all:
