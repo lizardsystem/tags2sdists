@@ -60,15 +60,19 @@ class CheckoutBaseDir:
 
 
 def sorted_versions(versions):
-    result = []
-    for version in versions:
-        try:
-            parsed = parse_version(version)
-            result.append(parsed)
-        except packaging.version.InvalidVersion:
-            logger.warning(f"Tag found that isn't a valid version: {version}")
+    return sorted([parse_version(version) for version in versions])
 
-    return sorted(result)
+
+def valid_versions(tags):
+    """Return tags that are parseable versions"""
+    result = []
+    for tag in tags:
+        try:
+            parse_version(tag)
+            result.append(tag)
+        except packaging.version.InvalidVersion:
+            logger.warning(f"Tag found that isn't a valid version: {tag}")
+    return result
 
 
 class CheckoutDir:
@@ -90,7 +94,7 @@ class CheckoutDir:
         if self._missing_tags is None:
             missing = []
             existing_sdists = sorted_versions(set(existing_sdists))
-            available = set(self.wrapper.vcs.available_tags())
+            available = valid_versions(set(self.wrapper.vcs.available_tags()))
             available_tags = sorted_versions(available)
             available_tags.reverse()
             for tag in available_tags:

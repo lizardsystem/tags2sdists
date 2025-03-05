@@ -5,7 +5,7 @@ Changelog of tags2sdists
 2.5.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Trying to properly catch unparseable version strings, again.
 
 
 2.5.1 (2025-03-05)
