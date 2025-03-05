@@ -23,6 +23,7 @@ Changelog of tags2sdists
   ``clean-python-0.16.5-py3-none-any.whl``). Somehow one of the packages I tested it on
   created underscore-names for the package, weirdly enough, with just a standard
   ``python -m build`` call, something that I didn't expect.
+  Note: the underscore-version is the currently recommended/required version.
 
 
 2.0 (2025-02-28)
