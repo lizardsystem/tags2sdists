@@ -5,7 +5,10 @@ Changelog of tags2sdists
 2.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- We're also looking for underscore-normalised source package files, now.
+
+- Only generating sdists, not wheels as there's no handy way to prevent building binary
+  wheels for those packages that need compiling.
 
 
 2.2 (2025-03-05)

@@ -124,7 +124,8 @@ class CheckoutDir:
         self.temp_tagdir = Path(os.path.realpath(os.getcwd()))
         logger.debug("Tag checkout placed in %s", self.temp_tagdir)
         python = sys.executable
-        logger.debug(command(f"{python} -m build"))
+        logger.debug(command(f"{python} -m build --sdist"))
+        # ^^^ No wheels as they can be binary.
         tarballs = find_tarballs(self.temp_tagdir, self.package, tag)
         return tarballs
 
