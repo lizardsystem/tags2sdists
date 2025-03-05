@@ -63,11 +63,12 @@ def sorted_versions(versions):
     result = []
     for version in versions:
         try:
-            result.append(parse_version(version))
+            parsed = parse_version(version)
+            result.append(parsed)
         except packaging.version.InvalidVersion:
             logger.warning(f"Tag found that isn't a valid version: {version}")
 
-    return result
+    return sorted(result)
 
 
 class CheckoutDir:
