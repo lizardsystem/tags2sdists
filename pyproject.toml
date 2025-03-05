@@ -14,7 +14,7 @@ dependencies = [
     "packaging>=24.2",
     "pkginfo",
     "setuptools",
-    "zest.releaser>=9.3.0",
+    "zest.releaser>=9.4.0",
 ]
 
 [project.urls]
