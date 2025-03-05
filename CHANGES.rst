@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-2.3 (unreleased)
+2.3 (2025-03-05)
 ----------------
 
 - We're also looking for underscore-normalised source package files, now.
