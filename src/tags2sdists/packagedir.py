@@ -29,7 +29,13 @@ class PackageDir:
             sdists = [
                 tarball
                 for tarball in dir_contents
-                if (tarball.endswith(".tar.gz") and tarball.startswith(package + "-"))
+                if (
+                    tarball.endswith(".tar.gz")
+                    and (
+                        tarball.startswith(package + "-")
+                        or tarball.startswith(package.replace("-", "_") + "-")
+                    )
+                )
             ]
             for sdist in sdists:
                 version = sdist.replace(".tar.gz", "").replace(package + "-", "")
