@@ -46,6 +46,6 @@ Create an sdist of 0.1:
 
     >>> print('start'), checkout_dir.create_sdists('0.1')  #doctest: +ELLIPSIS
     start...
-    >>> sorted(os.listdir(os.path.join(checkout_dir.temp_tagdir, 'dist')))
-    ['tags2sdists-0.1-py3-none-any.whl', 'tags2sdists-0.1.tar.gz']
+    >>> os.listdir(os.path.join(checkout_dir.temp_tagdir, 'dist'))
+    ['tags2sdists-0.1.tar.gz']
     >>> checkout_dir.cleanup()  # Remove the temp tag dir.

@@ -26,11 +26,15 @@ class PackageDir:
             if not os.path.isdir(directory):
                 continue
             dir_contents = os.listdir(directory)
-            normalized_name = package.replace("-", "_")
+            names = [package]
+            if "-" in package:
+                names.append(package.replace("-", "_"))
+            if "." in package:
+                names.append(package.replace(".", "_"))
             for tarball in dir_contents:
                 if not tarball.endswith(".tar.gz"):
                     continue
-                for name in [package, normalized_name]:
+                for name in names:
                     if tarball.startswith(name + "-"):
                         version = tarball.replace(".tar.gz", "").replace(name + "-", "")
                         self.packages[package].append(version)

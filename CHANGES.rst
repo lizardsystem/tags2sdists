@@ -5,7 +5,7 @@ Changelog of tags2sdists
 2.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Improved normalized name detection.
 
 
 2.3 (2025-03-05)
