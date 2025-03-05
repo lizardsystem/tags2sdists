@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-2.2 (unreleased)
+2.2 (2025-03-05)
 ----------------
 
 - Updated required zest.releaser version for 3.13 support and fewer deprecation
