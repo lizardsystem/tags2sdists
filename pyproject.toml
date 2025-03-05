@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tags2sdists"
-version = "2.4.dev0"
+version = "2.4"
 description="Create python sdists from tags"
 readme = "README.rst"  # TODO: "CHANGES.rst"
 requires-python = ">=3.12"

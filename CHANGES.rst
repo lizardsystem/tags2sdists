@@ -2,7 +2,7 @@ Changelog of tags2sdists
 ===================================================
 
 
-2.4 (unreleased)
+2.4 (2025-03-05)
 ----------------
 
 - Improved normalized name detection.
