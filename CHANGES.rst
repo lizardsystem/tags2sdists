@@ -5,7 +5,8 @@ Changelog of tags2sdists
 2.5.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added ``--allow-prereleases`` option. Previously, we always skipped alpha/beta tags
+  like ``0.1b1``. With the new option, they're included.
 
 
 2.5.2 (2025-03-05)

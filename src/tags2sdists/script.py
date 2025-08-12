@@ -41,6 +41,14 @@ def main():
         default=False,
         help="Build all releases (=don't stop if the newest tag is found)",
     )
+    parser.add_option(
+        "-p",
+        "--allow-prereleases",
+        action="store_true",
+        dest="allow_prereleases",
+        default=False,
+        help="Allow prereleases (=tags like 0.1b1 or 2.0a3)",
+    )
     (options, args) = parser.parse_args()
 
     if len(args) != 2:
@@ -76,6 +84,7 @@ def main():
         for tag in checkout_dir.missing_tags(
             existing_sdists=package_dir.packages[package],
             build_all=options.build_all,
+            allow_prereleases=options.allow_prereleases,
         ):
             tarballs = checkout_dir.create_sdists(tag)
             for tarball in tarballs:
